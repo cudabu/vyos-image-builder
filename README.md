@@ -26,6 +26,7 @@ docker run -d --rm \
     -e VYOS_DISK_SIZE="2" \
     -e VYOS_ENABLE_SSH="true" \
     cudabu/cudabu:vyos-rolling
+```
 
 # Versions
 
