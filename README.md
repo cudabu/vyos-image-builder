@@ -9,18 +9,19 @@ This is a container release featuring:
 ### Dependencies
 You need docker to make this work.
 
-### Build Docker Image
-Start by building the docker image.
+### Building Locally
+To build this locally follow these steps:
 
-```
-docker build -t vyos-image-builder:latest .
+```bash
+docker build \
+    -t vyos-image-builder:latest .
 ```
 
 ### Run Container
 
 Change output directory if needed. Otherwise the qcow2 image and log will be outputed in project directory.
 
-```
+```bash
 docker run -d --rm \
     -v /mnt:/mnt \
     -v "$(pwd):/output" \
@@ -31,3 +32,7 @@ docker run -d --rm \
     -e VYOS_ENABLE_SSH="true" \
     vyos-image-builder:latest
 ```
+
+## Versions
+
+* **17.06.22:** - Initial version
