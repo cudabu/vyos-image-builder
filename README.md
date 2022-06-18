@@ -4,12 +4,15 @@ This is a container release featuring:
 * Build VyOS 1.4 latest build cloud-init QEMU image
 * Completely automatic without a need to build from source
 
-## Installation
+# Credits
+This is build from https://github.com/vyos/vyos-vm-images
 
-### Dependencies
+# Installation
+
+## Dependencies
 You need docker to make this work.
 
-### Building Locally
+## Building Locally
 To build this locally follow these steps:
 
 ```bash
@@ -17,7 +20,7 @@ docker build \
     -t vyos-image-builder:latest .
 ```
 
-### Run Container
+## Run Container
 
 Change output directory if needed. Otherwise the qcow2 image and log will be outputed in project directory.
 
@@ -33,6 +36,6 @@ docker run -d --rm \
     vyos-image-builder:latest
 ```
 
-## Versions
+# Versions
 
 * **17.06.22:** - Initial version
