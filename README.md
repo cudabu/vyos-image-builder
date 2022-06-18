@@ -1,4 +1,4 @@
-# Template for building vyOS and deploying to Proxmox
+# VyOS image builder
 This is a container release featuring:
 
 * Build VyOS 1.4 latest build cloud-init QEMU image
