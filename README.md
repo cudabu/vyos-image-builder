@@ -17,7 +17,7 @@ You need docker to make this work.
 Change output directory if needed. Otherwise the qcow2 image and log will be outputed in project directory.
 
 ```bash
-docker run -d --rm \
+docker run --rm \
     -v /mnt:/mnt \
     -v "$(pwd):/output" \
     --privileged \
