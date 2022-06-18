@@ -2,7 +2,7 @@
 
 SOURCE_DIR=/vyos-vm-images
 OUTPUT_DIR=/output
-LOGFILE=$OUTPUT_DIR/log
+LOGFILE=$OUTPUT_DIR/output.log
 PLAYBOOK_FILE=$SOURCE_DIR/qemu.yml
 HOST_FILE=$SOURCE_DIR/hosts
 

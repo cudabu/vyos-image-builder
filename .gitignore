@@ -1,4 +1,5 @@
 # qcow2 images
-./*.qcow2
+*.qcow2
 
-# 
+# ignore logfiles
+*.log
