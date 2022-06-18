@@ -30,5 +30,5 @@ docker run -d --rm \
 
 # Versions
 
-* **18.06.22:** - Pushed docker image to hub https://hub.docker.com/repository/docker/cudabu/cudabu
+* **18.06.22:** - Pushed docker image to hub https://hub.docker.com/r/cudabu/cudabu
 * **17.06.22:** - Initial version
