@@ -12,15 +12,7 @@ This is build from https://github.com/vyos/vyos-vm-images
 ## Dependencies
 You need docker to make this work.
 
-## Building Locally
-To build this locally follow these steps:
-
-```bash
-docker build \
-    -t vyos-image-builder:latest .
-```
-
-## Run Container
+## Run the container
 
 Change output directory if needed. Otherwise the qcow2 image and log will be outputed in project directory.
 
@@ -33,9 +25,9 @@ docker run -d --rm \
     -e VYOS_GUEST_AGENT="qemu" \
     -e VYOS_DISK_SIZE="2" \
     -e VYOS_ENABLE_SSH="true" \
-    vyos-image-builder:latest
-```
+    cudabu/cudabu:vyos-rolling
 
 # Versions
 
+* **18.06.22:** - Pushed docker image to hub https://hub.docker.com/repository/docker/cudabu/cudabu
 * **17.06.22:** - Initial version

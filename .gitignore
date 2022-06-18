@@ -1,2 +1,4 @@
-# image output directories
-**/output/*
+# qcow2 images
+./*.qcow2
+
+# 
