@@ -1,0 +1,319 @@
+Starting log
+
+PLAY [qemu] ********************************************************************
+
+TASK [include_role : {{ roleinputvar }}] ***************************************
+
+TASK [install-packages : Install required packages] ****************************
+changed: [localhost]
+
+TASK [download-iso : Download VyOS ISO release] ********************************
+changed: [localhost]
+
+TASK [mount-iso : Mount ISO] ***************************************************
+changed: [localhost]
+
+TASK [mount-iso : Verify checksums of all the files in the ISO image] **********
+ok: [localhost]
+
+TASK [mount-iso : Mount squashfs image from ISO] *******************************
+changed: [localhost]
+
+TASK [get-version : Read version string from iso packages] *********************
+changed: [localhost]
+
+TASK [get-version : Set vyos_version] ******************************************
+ok: [localhost]
+
+TASK [get-version : Debug version string as read from ISO] *********************
+ok: [localhost] => {
+    "msg": "This is version 1.4-rolling-202206180736"
+}
+
+TASK [create-disk : Create the target disk image] ******************************
+changed: [localhost]
+
+TASK [setup-root-partition : Partition disk (MBR)] *****************************
+skipping: [localhost]
+
+TASK [setup-root-partition : Partition disk (GPT)] *****************************
+skipping: [localhost]
+
+TASK [setup-root-partition : Partition disk (hybrid)] **************************
+changed: [localhost]
+
+TASK [setup-root-partition : Set partition numbers for next actions (MBR)] *****
+skipping: [localhost]
+
+TASK [setup-root-partition : Set partition numbers for next actions (GPT)] *****
+skipping: [localhost]
+
+TASK [setup-root-partition : Set partition numbers for next actions (hybrid)] ***
+ok: [localhost]
+
+TASK [setup-root-partition : Reread partitions from image and mount to loopback] ***
+changed: [localhost]
+
+TASK [setup-root-partition : Find loop device path] ****************************
+changed: [localhost]
+
+TASK [setup-root-partition : Set vyos_target_drive fact] ***********************
+ok: [localhost]
+
+TASK [setup-root-partition : Create a fileystem on EFI partition] **************
+changed: [localhost]
+
+TASK [setup-root-partition : Create a fileystem on root partition] *************
+changed: [localhost]
+
+TASK [setup-root-partition : Mount root partition] *****************************
+changed: [localhost]
+
+TASK [install-image : Create /mnt/wroot directories] ***************************
+changed: [localhost]
+
+TASK [install-image : Create the work directory] *******************************
+changed: [localhost]
+
+TASK [install-image : Copy squashfs image from ISO to root partition] **********
+changed: [localhost]
+
+TASK [install-image : Copy boot files (kernel and initrd images) from ISO to root partition] ***
+changed: [localhost]
+
+TASK [mount-root-fs : Mount squashfs image from root partition] ****************
+changed: [localhost]
+
+TASK [mount-root-fs : Set rw directory for overlayfs] **************************
+ok: [localhost]
+
+TASK [mount-root-fs : Create a rw directory if it does not exist] **************
+ok: [localhost]
+
+TASK [mount-root-fs : Set work directory for overlayfs] ************************
+ok: [localhost]
+
+TASK [mount-root-fs : Create a work directory if it does not exist] ************
+ok: [localhost]
+
+TASK [mount-root-fs : Set up union root for post installation tasks] ***********
+changed: [localhost]
+
+TASK [install-config : Make sure that config partition marker exists] **********
+changed: [localhost]
+
+TASK [install-config : Copy config to the installed image] *********************
+changed: [localhost]
+
+TASK [install-grub : Create GRUB directory] ************************************
+ok: [localhost]
+
+TASK [install-grub : Mount and bind /dev /proc /sys and /mnt/wroot/boot to /mnt/inst_root] ***
+changed: [localhost]
+
+TASK [install-grub : Create efi directory] *************************************
+changed: [localhost]
+
+TASK [install-grub : Mount EFI] ************************************************
+changed: [localhost]
+
+TASK [install-grub : Install GRUB in the boot sector of /dev/mapper/loop11] ****
+changed: [localhost]
+
+TASK [install-grub : Install EFI GRUB to /dev/mapper/loop11p2] *****************
+changed: [localhost]
+
+TASK [install-grub : Configure GRUB] *******************************************
+changed: [localhost]
+
+TASK [install-grub : Unmount EFI] **********************************************
+changed: [localhost]
+
+TASK [install-persistence-conf : Create the persistence config] ****************
+changed: [localhost]
+
+TASK [Check if we need to install Cloud-Init] **********************************
+
+TASK [install-cloud-init : Set VyOS branch name crux] **************************
+skipping: [localhost]
+
+TASK [install-cloud-init : Set VyOS branch name equuleus] **********************
+skipping: [localhost]
+
+TASK [install-cloud-init : Put debian.list] ************************************
+changed: [localhost]
+
+TASK [install-cloud-init : backup resolv.conf] *********************************
+changed: [localhost]
+
+TASK [install-cloud-init : add nameserver settings to chroot] ******************
+changed: [localhost]
+
+TASK [install-cloud-init : apt-get update] *************************************
+changed: [localhost]
+
+TASK [install-cloud-init : Install cloud-init] *********************************
+changed: [localhost]
+
+TASK [install-cloud-init : apt-get clean] **************************************
+changed: [localhost]
+
+TASK [install-cloud-init : delete apt lists from cache] ************************
+changed: [localhost]
+
+TASK [install-cloud-init : Delete debian.list] *********************************
+changed: [localhost]
+
+TASK [install-cloud-init : Create cfg.d dir] ***********************************
+ok: [localhost]
+
+TASK [install-cloud-init : Put datasource_list.cfg] ****************************
+changed: [localhost]
+
+TASK [install-cloud-init : run dpkg-reconfigure cloud-init] ********************
+changed: [localhost]
+
+TASK [install-cloud-init : Disable config-stage modules] ***********************
+skipping: [localhost]
+
+TASK [install-cloud-init : Add source-directory to the /etc/network/interfaces] ***
+changed: [localhost]
+
+TASK [install-cloud-init : restore original resolv.conf] ***********************
+changed: [localhost]
+
+TASK [install-cloud-init-wrapper : Set Cloud-Init tag for image file name] *****
+ok: [localhost]
+
+TASK [Check if we need to install VM guest agents] *****************************
+
+TASK [install-guest-agent : Set VyOS branch name crux] *************************
+skipping: [localhost]
+
+TASK [install-guest-agent : Set VyOS branch name equuleus] *********************
+skipping: [localhost]
+
+TASK [install-guest-agent : Put debian.list] ***********************************
+changed: [localhost]
+
+TASK [install-guest-agent : backup resolv.conf] ********************************
+changed: [localhost]
+
+TASK [install-guest-agent : add nameserver settings to chroot] *****************
+changed: [localhost]
+
+TASK [install-guest-agent : apt-get update] ************************************
+changed: [localhost]
+
+TASK [install-guest-agent : Install qemu-guest-agent] **************************
+changed: [localhost]
+
+TASK [install-guest-agent : Install open-vm-tools] *****************************
+skipping: [localhost]
+
+TASK [install-guest-agent : apt-get clean] *************************************
+changed: [localhost]
+
+TASK [install-guest-agent : delete apt lists from cache] ***********************
+changed: [localhost]
+
+TASK [install-guest-agent : Delete debian.list] ********************************
+changed: [localhost]
+
+TASK [install-guest-agent : restore original resolv.conf] **********************
+changed: [localhost]
+
+TASK [Check if we need to install custom packages] *****************************
+skipping: [localhost]
+
+TASK [fstrim : Trim /mnt/wroot] ************************************************
+changed: [localhost]
+
+TASK [unmount-pre : Unmount /mnt/inst_root/sys, /mnt/inst_root/proc, /mnt/inst_root/dev] ***
+changed: [localhost] => (item=sys)
+changed: [localhost] => (item=proc)
+changed: [localhost] => (item=dev)
+
+TASK [unmount-pre : Unmount /mnt/inst_root/sys, /mnt/inst_root/proc, /mnt/inst_root/dev] ***
+ok: [localhost] => (item=sys)
+ok: [localhost] => (item=proc)
+ok: [localhost] => (item=dev)
+
+TASK [create-pxe-archive : Create directory for PXE files] *********************
+skipping: [localhost]
+
+TASK [create-pxe-archive : Save files required for PXE boot] *******************
+skipping: [localhost] => (item=initrd.img) 
+skipping: [localhost] => (item=vmlinuz) 
+
+TASK [create-pxe-archive : Create new squashfs image] **************************
+skipping: [localhost]
+
+TASK [create-pxe-archive : Add the /boot directory] ****************************
+skipping: [localhost]
+
+TASK [create-pxe-archive : Create an archive with files for PXE] ***************
+skipping: [localhost]
+
+TASK [unmount-all : Unmount /mnt/inst_root/boot] *******************************
+changed: [localhost]
+
+TASK [unmount-all : Unmount /mnt/inst_root/boot] *******************************
+ok: [localhost]
+
+TASK [unmount-all : Unmount /mnt/inst_root] ************************************
+changed: [localhost]
+
+TASK [unmount-all : Unmount /mnt/squashfs] *************************************
+changed: [localhost]
+
+TASK [unmount-all : Unmount /mnt/wroot] ****************************************
+changed: [localhost]
+
+TASK [unmount-all : Check if the raw image file exists] ************************
+ok: [localhost]
+
+TASK [unmount-all : Remove image partitions] ***********************************
+changed: [localhost]
+
+TASK [unmount-all : Remove /dev/mapper entries] ********************************
+changed: [localhost] => (item=loop11p1)
+changed: [localhost] => (item=loop11p2)
+changed: [localhost] => (item=loop11p3)
+
+TASK [unmount-all : Detach /dev/loop11] ****************************************
+changed: [localhost]
+
+TASK [unmount-all : Unmount /mnt/cdsquash] *************************************
+changed: [localhost]
+
+TASK [unmount-all : Unmount /mnt/cdrom] ****************************************
+changed: [localhost]
+
+TASK [qemu-qcow2 : Convert raw to qcow2] ***************************************
+changed: [localhost]
+
+TASK [cleanup-ending : Delete RAW image] ***************************************
+changed: [localhost]
+
+TASK [cleanup-ending : Delete PXE folder] **************************************
+skipping: [localhost]
+
+TASK [cleanup-ending : Delete Release key] *************************************
+ok: [localhost]
+
+TASK [cleanup-ending : Delete extracted squashfs path] *************************
+ok: [localhost]
+
+TASK [cleanup-ending : Delete temp iso creation path] **************************
+ok: [localhost]
+
+TASK [release : Release image] *************************************************
+skipping: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=80   changed=62   unreachable=0    failed=0   
+
+Copying /tmp/vyos-1.4-rolling-202206180736-cloud-init-2G-qemu.qcow2 to /output...
+Copied /tmp/vyos-1.4-rolling-202206180736-cloud-init-2G-qemu.qcow2
+Ending log
