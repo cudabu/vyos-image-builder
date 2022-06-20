@@ -31,6 +31,7 @@ docker run --rm \
 
 ### Environment Variable breakdown
 | Value | Description |
+| ----- | ----------- |
 | VYOS_CLOUD_INIT | Enable cloud init|
 | VYOS_GUEST_AGENT | Install QEMU agent tools|
 | VYOS_DISK_SIZE | Default is 10G |
