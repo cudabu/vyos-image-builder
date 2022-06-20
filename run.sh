@@ -16,8 +16,8 @@ ansible-playbook $PLAYBOOK_FILE -i $HOST_FILE $EXTRA_ARGS >> $LOGFILE
 VYOS_FILE=( /tmp/*.qcow2 )
 echo "Copying $VYOS_FILE to $OUTPUT_DIR..." >> $LOGFILE
 cp $VYOS_FILE $OUTPUT_DIR
-echo "Creating symbolic link for $VYOS_FILE to $VYOS_SYMBOLIC_FILENAME"  >> $LOGFILE
-ln -s $OUTPUT_DIR/$VYOS_FILE $OUTPUT_DIR/$VYOS_SYMBOLIC_FILENAME
+echo "Copying $VYOS_FILE to $VYOS_LATEST_FILENAME"  >> $LOGFILE
+cp $OUTPUT_DIR/$VYOS_FILE $OUTPUT_DIR/$VYOS_LATEST_FILENAME
 
 # End logging
 echo "Ending log" >> $LOGFILE

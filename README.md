@@ -25,7 +25,7 @@ docker run --rm \
     -e VYOS_GUEST_AGENT="qemu" \
     -e VYOS_DISK_SIZE="2" \
     -e VYOS_ENABLE_SSH="true" \
-    -e VYOS_SYMBOLIC_FILENAME="vyos-1.4-latest.qcow2" \
+    -e VYOS_LATEST_FILENAME="vyos-1.4-latest.qcow2" \
     cudabu/cudabu:vyos-rolling
 ```
 
@@ -35,10 +35,10 @@ docker run --rm \
 | VYOS_GUEST_AGENT | Install QEMU agent tools|
 | VYOS_DISK_SIZE | Default is 10G |
 | VYOS_ENABLE_SSH | Allow SSH to image after install |
-| VYOS_SYMBOLIC_FILENAME | When image is complete this will be a static name to automate with Proxmox|
+| VYOS_LATEST_FILENAME | When image is complete this will be a static name to automate with Proxmox|
 
 # Versions
 
-* **20.06.22:** - Added symbolic link to final file output to assist in further automation
+* **20.06.22:** - Copy file at end to fixed name for further automation. Not using symbolic hardlinks due to lack of support in unRAID.
 * **18.06.22:** - Pushed docker image to hub https://hub.docker.com/r/cudabu/cudabu
 * **17.06.22:** - Initial version
