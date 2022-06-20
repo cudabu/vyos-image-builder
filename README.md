@@ -25,7 +25,7 @@ docker run --rm \
     -e VYOS_GUEST_AGENT="qemu" \
     -e VYOS_DISK_SIZE="2" \
     -e VYOS_ENABLE_SSH="true" \
-    -e VYOS_SYMBOLIC_FILENAME="vyos-1.4-latest.qcow2"
+    -e VYOS_SYMBOLIC_FILENAME="vyos-1.4-latest.qcow2" \
     cudabu/cudabu:vyos-rolling
 ```
 
